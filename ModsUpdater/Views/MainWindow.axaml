@@ -8,12 +8,40 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="ModsUpdater">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="4*"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<ListBox Grid.Column="1" CornerRadius="1" BorderThickness="2" BorderBrush="Black">
+			<ListBoxItem>
+				<Label Content="sad"/>
+			</ListBoxItem>
+		</ListBox>
+		<StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom">
+			
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="30" Content="Обновить" 
+					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center"/>
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="30" Content="Выход"
+					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center"/>
+		</StackPanel>
+		<TextBlock TextWrapping="Wrap" Classes="TextBlock.Content">
+			<TextBlock.Text>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eleifend dignissim risus ultrices accumsan. Aliquam erat volutpat. Donec bibendum mauris quis consectetur blandit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras dapibus lectus et justo feugiat, vitae semper enim elementum. Maecenas consequat imperdiet diam, at consequat ante rutrum id. Nullam congue accumsan dui at tristique. Integer convallis hendrerit tempus. Ut quis diam nec risus faucibus sollicitudin. Sed neque dolor, lobortis id congue id, commodo id nibh. Donec quis ex est. Proin non elit nisi. Nulla ac dui orci.
+
+Proin imperdiet maximus lobortis. Vestibulum imperdiet commodo lacus. Curabitur maximus vehicula dui non scelerisque. Aliquam fringilla pellentesque purus in elementum. In non sollicitudin quam. Fusce a augue a massa viverra molestie. Maecenas et pharetra felis. Nulla ac tortor suscipit mi aliquam pretium. Donec lectus quam, blandit vel finibus eu, suscipit vitae dolor. Integer blandit rhoncus lectus eget elementum. Nunc sed ligula vel sapien aliquet imperdiet. Phasellus rutrum nec sapien sit amet ultrices.
+			</TextBlock.Text>
+		</TextBlock>
+	</Grid>
 
 </Window>
