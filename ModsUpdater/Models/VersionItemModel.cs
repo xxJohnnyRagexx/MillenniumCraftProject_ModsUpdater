@@ -11,6 +11,7 @@ namespace ModsUpdater.Models
     {
         public string Version { get; set; }
         public string GameVersion { get; set; }
+        public string Description { get; set; }
         public string Url { get; set; }
     }
 }

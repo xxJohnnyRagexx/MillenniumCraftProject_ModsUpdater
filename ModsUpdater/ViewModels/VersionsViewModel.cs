@@ -13,14 +13,20 @@ namespace ModsUpdater.ViewModels
 
         public string Version
         {
-            get => _versionItemModel.GameVersion;
-            set => _versionItemModel.GameVersion = value;
+            get => _versionItemModel.Version;
+            set => _versionItemModel.Version = value;
         }
 
         public string GameVersion
         {
             get => _versionItemModel.GameVersion;
             set => _versionItemModel.GameVersion = value;
+        }
+
+        public string Description
+        {
+            get => _versionItemModel.Description;
+            set => _versionItemModel.Description = value;
         }
 
         public string Url

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FakeDAL.Models
+namespace Business.Dto
 {
-    public class UpdatesResponse
+    public class UpdateItemDto
     {
         public string Version { get; set; }
         public string GameVersion { get; set; }

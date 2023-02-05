@@ -13,6 +13,7 @@ namespace FakeDAL
                 {
                     Version = "0.1",
                     GameVersion= "1.12.2",
+                    Description="В этой версии добавлено то и это и пятое и десятое, поэтому качайте, вам понравится.",
                     Url = "Url",
                 },
 
@@ -20,6 +21,7 @@ namespace FakeDAL
                 {
                     Version = "0.4",
                     GameVersion = "1.19.2",
+                    Description = "А тут в дополнение к предыдущему ещё кое-что, вот список, читайте, радуйтесь жизни.",
                     Url = "Url"
                 }
             };

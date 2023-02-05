@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="ModsUpdater.Views.MainView"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ModsUpdater.Views.MainView">
+	
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="4*"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}"/>
+
+		<ListBox x:Name="VersionsList" Grid.Column="1" CornerRadius="1" BorderThickness="2" BorderBrush="Black"  Items="{Binding VersionsList}"
+				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding Version}"/>
+						<TextBlock Text="{Binding GameVersion}"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom">
+
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Обновить"
+					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Padding="5 5 5 5"/>
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Выход"
+					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Padding="5 5 5 5"/>
+		</StackPanel>
+
+	</Grid>
+</UserControl>
