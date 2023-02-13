@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using ModsUpdater.ViewModels;
 
 namespace ModsUpdater.Views
 {
@@ -7,6 +8,7 @@ namespace ModsUpdater.Views
         public SettingsView()
         {
             InitializeComponent();
+            DataContext = new SettingsViewModel();
         }
     }
 }

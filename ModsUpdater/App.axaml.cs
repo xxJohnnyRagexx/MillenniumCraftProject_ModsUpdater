@@ -24,7 +24,7 @@ namespace ModsUpdater
                 ExpressionObserver.DataValidators.RemoveAll(x => x is DataAnnotationsValidationPlugin);
                 desktop.MainWindow = new MainWindowView
                 {
-                    DataContext = new VersionsListViewModel(),
+                    DataContext = new MainWindowViewModel(),
                 };
             }
 
