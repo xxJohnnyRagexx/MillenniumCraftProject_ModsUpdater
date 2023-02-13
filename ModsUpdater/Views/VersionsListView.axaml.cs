@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace ModsUpdater.Views
 {
-    public partial class MainWindow : Window
+    public partial class VersionsListView : UserControl
     {
-        public MainWindow()
+        public VersionsListView()
         {
             InitializeComponent();
         }

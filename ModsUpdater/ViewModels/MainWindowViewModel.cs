@@ -1,38 +1,27 @@
-﻿using Avalonia.Controls.Selection;
-using Business;
-using CommunityToolkit.Mvvm.Input;
+﻿using Avalonia.Controls;
+using ModsUpdater.Views;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Input;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ModsUpdater.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel: ViewModelBase
     {
-        public ObservableCollection<VersionsViewModel> VersionsList { get; set; }
-
-        public string ShowedDescription { get; set; }
-
-        private VersionsViewModel selectedItem;
-
-        public VersionsViewModel SelectedItem
+        private ViewModelBase _content;
+        public ViewModelBase Content
         {
-            get => selectedItem;
-            set => this.SetProperty(ref selectedItem, value);
+            get => _content;
+            private set => this.SetProperty(ref _content, value);
         }
 
-        private readonly UpdaterService _updaterService = new UpdaterService();
-        public MainWindowViewModel() 
+        public MainWindowViewModel()
         {
-            var data = _updaterService.GetUpdates();
-            VersionsList = new ObservableCollection<VersionsViewModel>(data.Select(
-                x => new VersionsViewModel
-                (
-                    x.ToModel()
-                )
-            ));
+            Content = new VersionsListViewModel();
         }
-
     }
 }

@@ -6,7 +6,15 @@
              x:Class="ModsUpdater.Views.SettingsView">
 <Grid>
     <Grid.ColumnDefinitions>
-       
+       <ColumnDefinition Width="1.5*"/>
+	    <ColumnDefinition Width="400"/>
+	    <ColumnDefinition/>
     </Grid.ColumnDefinitions>
+	<StackPanel Grid.Column="0">
+    <TextBlock Text="Путь к папке с игрой"/>		
+	</StackPanel>
+    <StackPanel Grid.Column="1">
+		<TextBox Text="%APPDATA%\.minecraft"/>
+	</StackPanel>
 </Grid>
 </UserControl>
