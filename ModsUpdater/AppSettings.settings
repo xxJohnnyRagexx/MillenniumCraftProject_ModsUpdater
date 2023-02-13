@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ModsUpdater" GeneratedClassName="AppSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="GamePathWin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">%APPDATA%\.minecraft</Value>
+    </Setting>
+    <Setting Name="GamePathLinux" Type="System.String" Scope="User">
+      <Value Profile="(Default)">~/.minecraft</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

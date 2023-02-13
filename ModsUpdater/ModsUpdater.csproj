@@ -22,6 +22,7 @@
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
   </ItemGroup>
 
@@ -30,6 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AppSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppSettings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Views\VersionsListView.axaml.cs">
       <DependentUpon>VersionsListView.axaml</DependentUpon>
     </Compile>
@@ -39,5 +45,12 @@
     <Compile Update="Views\SettingsView.axaml.cs">
       <DependentUpon>SettingsView.axaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="AppSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>

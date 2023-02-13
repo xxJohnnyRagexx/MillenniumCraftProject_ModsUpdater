@@ -14,7 +14,7 @@
     <TextBlock Text="Путь к папке с игрой"/>		
 	</StackPanel>
     <StackPanel Grid.Column="1">
-		<TextBox Text="%APPDATA%\.minecraft"/>
+		<TextBox Text="{Binding Item.GamePath}"/>
 	</StackPanel>
 </Grid>
 </UserControl>

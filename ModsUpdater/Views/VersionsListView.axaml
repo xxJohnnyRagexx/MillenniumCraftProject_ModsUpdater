@@ -33,8 +33,6 @@
 
 			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Обновить"
 					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Padding="5 5 5 5"/>
-			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Выход"
-					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Padding="5 5 5 5"/>
 		</StackPanel>
 
 	</Grid>

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace ModsUpdater.Models
 {
     public class SettingsModel
-    {
+    { 
+        public string GamePath { get; set; }
     }
 }
