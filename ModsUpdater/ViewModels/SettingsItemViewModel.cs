@@ -14,6 +14,12 @@ namespace ModsUpdater.ViewModels
     {
         private SettingsModel _model;
 
+        public string ServerUrl
+        {
+            get => _model.ServerUrl;
+            set => _model.ServerUrl = value;
+        }
+
         public string GamePath
         {
             get => _model.GamePath;
@@ -32,14 +38,14 @@ namespace ModsUpdater.ViewModels
                 _model = new SettingsModel
                 {
                     GamePath = Environment.ExpandEnvironmentVariables(AppSettings.Default.GamePathWin),
+                    ServerUrl = "localhost:5000",
                 };
-            if (OperatingSystem.IsLinux())
-            {
+            else if (OperatingSystem.IsLinux()) 
                 _model = new SettingsModel
                 {
                     GamePath = Environment.ExpandEnvironmentVariables(AppSettings.Default.GamePathLinux),
-                };
-            }
+                    ServerUrl = "localhost:5000",
+                };    
         }
     }
 }

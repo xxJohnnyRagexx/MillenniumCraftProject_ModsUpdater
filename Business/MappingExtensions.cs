@@ -1,6 +1,6 @@
 ﻿using Business.Dto;
-using FakeDAL.Models;
 using System.Runtime.CompilerServices;
+using UpdatesServiceHttpClient;
 
 namespace Business
 {
@@ -10,10 +10,9 @@ namespace Business
         {
             return new UpdateItemDto
             {
-                Version = source.Version,
+                Version = source.Version.ToString(),
                 GameVersion = source.GameVersion,
                 Description = source.Description,
-                Url = source.Url,
             };
         }
     }

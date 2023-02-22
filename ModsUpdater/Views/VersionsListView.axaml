@@ -21,10 +21,20 @@
 				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock Text="{Binding Version}"/>
-						<TextBlock Text="{Binding GameVersion}"/>
-					</StackPanel>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="4*"/>
+							<ColumnDefinition Width="2*"/>
+						</Grid.ColumnDefinitions>
+						<TextBlock Text="Версия игры" Grid.Column="0" Grid.Row="0"/>
+						<TextBlock Text="{Binding GameVersion}" Grid.Row="0" Grid.Column="1"/>
+						<TextBlock Text="Версия о-ия" Grid.Row="1" Grid.Column="0"/>
+						<TextBlock Text="{Binding Version}" Grid.Row="1" Grid.Column="1"/>
+					</Grid>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>

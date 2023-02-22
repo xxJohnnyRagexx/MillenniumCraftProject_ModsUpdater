@@ -9,5 +9,6 @@ namespace ModsUpdater.Models
     public class SettingsModel
     { 
         public string GamePath { get; set; }
+        public string ServerUrl { get; set; }
     }
 }

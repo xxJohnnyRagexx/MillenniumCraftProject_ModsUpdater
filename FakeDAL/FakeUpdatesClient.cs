@@ -2,10 +2,10 @@
 
 namespace FakeDAL
 {
-    public class UpdatesClient : IUpdatesClient
+    public class FakeUpdatesClient : IFakeUpdatesClient
     {
         private List<UpdatesResponse> _updatesResponses;
-        public UpdatesClient()
+        public FakeUpdatesClient()
         {
             _updatesResponses = new List<UpdatesResponse>
             {

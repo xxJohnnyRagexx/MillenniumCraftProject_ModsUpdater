@@ -4,17 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="ModsUpdater.Views.SettingsView">
-<Grid>
-    <Grid.ColumnDefinitions>
-       <ColumnDefinition Width="1.5*"/>
-	    <ColumnDefinition Width="400"/>
-	    <ColumnDefinition/>
-    </Grid.ColumnDefinitions>
-	<StackPanel Grid.Column="0">
-    <TextBlock Text="Путь к папке с игрой"/>		
-	</StackPanel>
-    <StackPanel Grid.Column="1">
-		<TextBox Text="{Binding Item.GamePath}"/>
-	</StackPanel>
-</Grid>
+
+		<!--TextBox Text="{Binding Item.GamePath}"/-->
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition MaxHeight="30"/>
+			<RowDefinition MaxHeight="30"/>
+		</Grid.RowDefinitions>
+		<TextBlock Text="Путь к папке с игрой" Grid.Row="0" Grid.Column="0"/>
+		<TextBox Text="{Binding Item.GamePath}" Grid.Row="0" Grid.Column="1"/>	
+		<TextBlock Text="Адрес сервера обновлений" Grid.Row="1" Grid.Column="0"/>
+		<TextBox Text="{Binding Item.ServerUrl}" Grid.Row="1" Grid.Column="1"/>
+	</Grid>
 </UserControl>

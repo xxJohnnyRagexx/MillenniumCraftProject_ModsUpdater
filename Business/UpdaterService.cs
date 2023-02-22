@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UpdatesServiceHttpClient;
 
 namespace Business
 {
@@ -20,9 +21,11 @@ namespace Business
 
         public List<UpdateItemDto> GetUpdates()
         {
-            return _updatesClient.FetchUpdatesData().Select(
+            var q  = _updatesClient.FetchUpdates().Select(
                 x => x.ToDto()
-                ).ToList();
+               ).ToList();
+
+            return q;
         }
     }
 }

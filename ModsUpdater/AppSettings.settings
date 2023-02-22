@@ -8,5 +8,8 @@
     <Setting Name="GamePathLinux" Type="System.String" Scope="User">
       <Value Profile="(Default)">~/.minecraft</Value>
     </Setting>
+    <Setting Name="ServerUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost:7220/api/updates-service</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

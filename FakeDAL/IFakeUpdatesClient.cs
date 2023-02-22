@@ -2,7 +2,7 @@
 
 namespace FakeDAL
 {
-    public interface IUpdatesClient
+    public interface IFakeUpdatesClient
     {
         List<UpdatesResponse> FetchUpdatesData();
     }
