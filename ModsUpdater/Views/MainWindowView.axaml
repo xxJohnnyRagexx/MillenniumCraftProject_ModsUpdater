@@ -6,17 +6,21 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ModsUpdater.Views.MainWindowView"
         Icon="/Assets/avalonia-logo.ico"
-        Title="ModsUpdater">
+        Title="ModsUpdater"
+		Classes="MainWindow">
+	<Window.Styles>
+		<StyleInclude Source="/Styles/RetroStyle.axaml"/>
+	</Window.Styles>
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="50"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
 	<StackPanel Grid.Row="0" Orientation="Horizontal">
-		<Button Content="home" Height="50" Width="100"
+		<Button Content="Домой" Height="50" Width="100" Classes="MainButton"
 				VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
 				Command="{Binding GoToHomeCommand}"/>
-		<Button Content="settings" Height="50" Width="100" 
+		<Button Content="Настройки" Height="50" Width="100" Classes="MainButton"
 				VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
 				Command="{Binding GoToSettingsCommand}"/>
 	</StackPanel>
