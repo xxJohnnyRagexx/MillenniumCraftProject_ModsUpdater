@@ -17,12 +17,10 @@
 			<RowDefinition/>
 		</Grid.RowDefinitions>
 	<StackPanel Grid.Row="0" Orientation="Horizontal">
-		<Button Content="Домой" Height="50" Width="100" Classes="MainButton"
-				VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+		<Button Content="Домой" Height="50" Width="100" Classes="MainButton" 
 				Command="{Binding GoToHomeCommand}"/>
-		<Button Content="Настройки" Height="50" Width="100" Classes="MainButton"
-				VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
-				Command="{Binding GoToSettingsCommand}"/>
+		<Button Content="Настройки" Height="50" Width="100" Classes="MainButton" 
+				Command="{Binding GoToSettingsCommand}" />
 	</StackPanel>
 	<ContentControl Grid.Row="1" Content="{Binding List}"/>
 	</Grid>
