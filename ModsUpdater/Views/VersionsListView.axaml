@@ -41,11 +41,12 @@
 
 		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
 
-			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Обновить" Classes="MainButton"/>
+			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Обновить" Classes="MainButton"
+					Command="{Binding DownloadFileCommand}"/>
 		</StackPanel>
 		<StackPanel Grid.Column="0" Grid.Row="1">
 			<TextBlock Text="Загрузка обновления"></TextBlock>
-			<ProgressBar ShowProgressText="True" Height="30" Value="30"></ProgressBar>
+			<ProgressBar ShowProgressText="True" Height="30" Value="{Binding Progress}"></ProgressBar>
 		</StackPanel>
 
 	</Grid>

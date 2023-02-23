@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Downloader" Version="3.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FakeDAL\FakeDAL.csproj" />
     <ProjectReference Include="..\UpdatesServiceHttpClient\UpdatesServiceHttpClient.csproj" />
   </ItemGroup>
