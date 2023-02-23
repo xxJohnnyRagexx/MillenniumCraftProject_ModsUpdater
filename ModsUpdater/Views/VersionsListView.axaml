@@ -14,10 +14,10 @@
 			<RowDefinition Height="4*"/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
-
-		<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}"/>
-
-		<ListBox x:Name="VersionsList" Grid.Column="1" CornerRadius="1" BorderThickness="2" BorderBrush="Black"  Items="{Binding VersionsList}"
+		<Border Classes="ContentBorder">
+			<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}"/>
+		</Border>
+		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding VersionsList}"
 				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>

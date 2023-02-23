@@ -22,7 +22,7 @@
 		<Button Content="Настройки" Height="50" Width="100" Classes="MainButton" 
 				Command="{Binding GoToSettingsCommand}" />
 	</StackPanel>
-	<ContentControl Grid.Row="1" Content="{Binding List}"/>
+	<ContentControl Grid.Row="1" Content="{Binding List}" Margin="20 20 20 20"/>
 	</Grid>
 
 </Window>
