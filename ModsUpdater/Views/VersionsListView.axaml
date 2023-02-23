@@ -39,9 +39,13 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 
-		<StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom">
+		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
 
 			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Обновить" Classes="MainButton"/>
+		</StackPanel>
+		<StackPanel Grid.Column="0" Grid.Row="1">
+			<TextBlock Text="Загрузка обновления"></TextBlock>
+			<ProgressBar ShowProgressText="True" Height="30" Value="30"></ProgressBar>
 		</StackPanel>
 
 	</Grid>
