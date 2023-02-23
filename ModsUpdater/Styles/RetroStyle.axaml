@@ -11,19 +11,34 @@
 	<Style Selector="Button">
 		<Setter Property="Background" Value="#000AFF"/>
 		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="Margin" Value="5 5 5 5"/>
+		<Setter Property="Padding" Value="5 5 5 5"/>
+		<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
 		<!--Setter Property="BorderBrush" Value="#000B6C"/-->
 		<!--Setter Property="BorderThickness" Value="0 0 4 4"/-->
 	</Style>
+	<Style Selector="Button.MainButton /template/ ContentPresenter">
+		<Setter Property="BoxShadow" Value="3 3 #000B6C"/>
+		<Setter Property="Margin" Value="5 5 5 5"/>
+		<Setter Property="Padding" Value="5 5 5 5"/>
+	</Style>
 	<Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+		<Setter Property="Margin" Value="5 5 5 5"/>
+		<Setter Property="Padding" Value="5 5 5 5"/>
 		<Setter Property="Background" Value="#000AFF"/>
-		<Setter Property="CornerRadius" Value="0"/>
-		<Setter Property="BorderBrush" Value="#000B6C"/>
-		<Setter Property="BorderThickness" Value="2 2 2 2"/>
-		<Setter Property="TextBlock.Foreground" Value="#f5f5f5"/>
+		<Setter Property="BorderBrush" Value="#FFFFFF"/>
+		<Setter Property="TextBlock.Foreground" Value="#FFFFFF"/>
+		<!--Setter Property="BorderThickness" Value="0 0 0 0"/>
+		<Setter Property="Height" Value="40"/>
+		<Setter Property="Width" Value="100"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="TextBlock.Foreground" Value="#f5f5f5"/-->
 	</Style>
 	<Style Selector="TextBlock">
 		<Setter Property="FontFamily" Value="avares://ModsUpdater/Assets/Fifaks10Dev1.ttf#Fifaks"/>
-		<Setter Property="FontSize" Value="16"/>
+		<Setter Property="FontSize" Value="20"/>
 		<Setter Property="Foreground" Value="#506CFF"/>
 		<Setter Property="Margin" Value="5 5 5 5"/>
 		<!--Setter Property="BorderBrush" Value="#000B6C"/>
