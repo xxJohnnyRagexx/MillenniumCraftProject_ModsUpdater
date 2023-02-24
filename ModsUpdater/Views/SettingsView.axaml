@@ -15,9 +15,9 @@
 			<RowDefinition MaxHeight="30"/>
 			<RowDefinition MaxHeight="30"/>
 		</Grid.RowDefinitions>
-		<TextBlock Text="Путь к папке с игрой" Grid.Row="0" Grid.Column="0"/>
-		<TextBox Text="{Binding Item.GamePath}" Grid.Row="0" Grid.Column="1"/>	
-		<TextBlock Text="Адрес сервера обновлений" Grid.Row="1" Grid.Column="0"/>
-		<TextBox Text="{Binding Item.ServerUrl}" Grid.Row="1" Grid.Column="1"/>
+		<TextBlock Classes="TextBlock" Text="Путь к папке с игрой" Grid.Row="0" Grid.Column="0"/>
+		<TextBox Text="{Binding Item.GamePath}" Grid.Row="0" Grid.Column="1" Classes="TextBox"/>	
+		<TextBlock Classes="TextBlock" Text="Адрес сервера обновлений" Grid.Row="1" Grid.Column="0"/>
+		<TextBox Text="{Binding Item.ServerUrl}" Grid.Row="1" Grid.Column="1" Classes="TextBox"/>
 	</Grid>
 </UserControl>
