@@ -17,7 +17,7 @@
 		<Border Classes="ContentBorder">
 			<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}" Classes="TextContent"/>
 		</Border>
-		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding VersionsList}"
+		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding Versions^}"
 				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
@@ -45,7 +45,7 @@
 					Command="{Binding DownloadFileCommand}"/>
 		</StackPanel>
 		<StackPanel Grid.Column="0" Grid.Row="1">
-			<TextBlock Text="Загрузка обновления"></TextBlock>
+			<TextBlock Text="{Binding State}"></TextBlock>
 			<ProgressBar ShowProgressText="True" Height="30" Value="{Binding Progress}"></ProgressBar>
 		</StackPanel>
 

@@ -19,9 +19,9 @@ namespace UpdatesServiceHttpClient
             _url = url;
         }
 
-        public List<UpdatesResponse> FetchUpdates()
+        public async Task<List<UpdatesResponse>> FetchUpdates()
         {
-            var response = httpClient.GetStringAsync("fetch-updates").Result;
+            var response = await httpClient.GetStringAsync("fetch-updates");
             var q = JsonSerializer.Deserialize<List<UpdatesResponse>>(response);
             return q;
         }
