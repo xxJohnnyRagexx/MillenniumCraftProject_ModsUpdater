@@ -27,13 +27,12 @@ namespace Business
         public async Task<List<UpdateItemDto>> GetUpdates()
         {
             var q = await _updatesClient.FetchUpdates();
-            await Task.Delay(10000);
             return q.Select(x => x.ToDto()).ToList();
         }
 
         public async Task GetUpdateAsync(string version, EventHandler<DownloadProgressChangedEventArgs> downloadProcessChanged)
         {
-            string file = @"D:\DownLoadedFile.zip";
+            string file = @"/home/marko/Загрузки/testpack.tar.gz";
             string url = $"http://localhost:5000/api/updates-service/update?gameVersion={version}";
             _downloadService.DownloadProgressChanged += downloadProcessChanged;
             await _downloadService.DownloadFileTaskAsync(url, file);

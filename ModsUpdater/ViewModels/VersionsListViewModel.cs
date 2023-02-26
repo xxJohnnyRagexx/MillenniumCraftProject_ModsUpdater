@@ -14,47 +14,31 @@ namespace ModsUpdater.ViewModels
 {
     public class VersionsListViewModel : ViewModelBase
     {
-        public ObservableCollection<VersionsViewModel> VersionsList { get; set; }
+        private string state;
+        private int progress;
+        private VersionsViewModel selectedItem;
         public Task<ObservableCollection<VersionsViewModel>> Versions => getVersionsListAsync();
-
         public string State 
         {   
             get => state;
             set => SetProperty(ref state, value);
         }
-
         public ICommand DownloadFileCommand { get; }
-        private string state;
-        private VersionsViewModel selectedItem;
-
-        private int progress;
-
         public int Progress
         {
             get => progress;
             set => this.SetProperty(ref progress, value);
         }
-
         public VersionsViewModel SelectedItem
         {
             get => selectedItem;
             set => this.SetProperty(ref selectedItem, value);
         }
-
         private readonly UpdaterService _updaterService = new UpdaterService();
-        private readonly DownloadService _downloadService = new DownloadService();
-        public VersionsListViewModel() 
+        public VersionsListViewModel()
         {
-            DownloadFileCommand = new AsyncRelayCommand(async () =>
-            {
-                Progress = 0;
-                await _updaterService.GetUpdateAsync(selectedItem.GameVersion,  (sender, e) => {
-                    Progress = Convert.ToInt32(e.ProgressPercentage * 100);
-                }
-                );
-            });
+            DownloadFileCommand = new AsyncRelayCommand(downloadUpdates);
         }
-
         private async Task<ObservableCollection<VersionsViewModel>> getVersionsListAsync()
         {
             State = "Получение списка обновлений";
@@ -66,7 +50,17 @@ namespace ModsUpdater.ViewModels
                         x.ToModel()
                     ))
             );
-            
+        }
+        private async Task downloadUpdates()
+        {
+            Progress = 0;
+            if (selectedItem != null)
+            {
+                await _updaterService.GetUpdateAsync
+                (selectedItem.GameVersion, (sender, e) => 
+                    { Progress = Convert.ToInt32(e.ProgressPercentage * 100); }
+                );
+            }
         }
     }
 }
