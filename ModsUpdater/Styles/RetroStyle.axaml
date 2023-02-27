@@ -62,7 +62,9 @@
 	<Setter Property="BorderThickness" Value="2 2 2 2"/>
 	<Setter Property="Margin" Value="5 10 5 10"/>
     </Style>
-<Style Selector="TextBox:Focus">
+
+
+<Style Selector="TextBox">
 	<Setter Property="TextBlock.Foreground" Value="#506CFF"/>
 	<Setter Property="Background" Value="#000000"/>
 	<Setter Property="BorderBrush" Value="#000B6C"/>
@@ -70,9 +72,7 @@
 	<Setter Property="Margin" Value="5 10 5 10"/>
 	<Setter Property="TextBlock.FontFamily" Value="avares://ModsUpdater/Assets/Fifaks10Dev1.ttf#Fifaks"/>
 	<Setter Property="TextBlock.FontSize" Value="18"/>
-	
-	
-    </Style>
+</Style>
 
-    <!-- Add Styles Here -->
+	<!-- Add Styles Here -->
 </Styles>

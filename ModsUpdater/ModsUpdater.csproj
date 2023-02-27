@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
+    <AvaloniaXaml Remove="Views\Autors.axaml" />
     <None Remove=".gitignore" />
   </ItemGroup>
 

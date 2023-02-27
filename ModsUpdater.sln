@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeDAL", "FakeDAL\FakeDAL.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{A7969484-884C-4AEC-AC36-42584A2A945A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdatesServiceHttpClient", "UpdatesServiceHttpClient\UpdatesServiceHttpClient.csproj", "{A06FA7E5-F34F-425C-A987-717A1F94654E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdatesServiceHttpClient", "UpdatesServiceHttpClient\UpdatesServiceHttpClient.csproj", "{A06FA7E5-F34F-425C-A987-717A1F94654E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
