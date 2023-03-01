@@ -15,12 +15,10 @@
 			<RowDefinition/>
 		</Grid.RowDefinitions>
 		<Border Classes="ContentBorder">
-			<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}"/>
-		</Border >
-		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding VersionsList}"
-				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}"
-				 Classes="ListBox">
-				
+			<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}" Classes="TextContent"/>
+		</Border>
+		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding Versions^}"
+				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 				
@@ -41,6 +39,8 @@
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
+
+		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
 
 		<StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom">
 

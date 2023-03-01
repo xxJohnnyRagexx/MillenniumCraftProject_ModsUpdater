@@ -13,5 +13,6 @@ namespace ModsUpdater.Models
         public string GameVersion { get; set; }
         public string Description { get; set; }
         public string Url { get; set; }
+        public bool IsInstalled { get; set; }
     }
 }
