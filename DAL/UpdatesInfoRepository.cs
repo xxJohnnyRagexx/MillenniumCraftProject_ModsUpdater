@@ -2,7 +2,7 @@
 
 namespace DAL
 {
-    public class UpdatesInfoRepository
+    public class UpdatesInfoRepository : IUpdatesInfoRepository
     {
         private ILiteDatabaseAsync _database { get; set; }
         private string filepath = Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), "updates.db").ToString();

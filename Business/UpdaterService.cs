@@ -6,7 +6,7 @@ using UpdatesServiceHttpClient;
 
 namespace Business
 {
-    public class UpdaterService
+    public class UpdaterService : IUpdaterService, IUpdaterService
     {
         private readonly IUpdatesClient _updatesClient;
         private readonly IDownloadService _downloadService;

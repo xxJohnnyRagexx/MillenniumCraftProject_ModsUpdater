@@ -17,7 +17,7 @@
 		<Border Classes="ContentBorder">
 			<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}" Classes="TextContent"/>
 		</Border>
-		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding Versions^}"
+		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding Versions^}" Classes="ListBox"
 				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
@@ -41,11 +41,13 @@
 		</ListBox>
 
 		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+		</StackPanel>
 
 		<StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom">
 
 			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Обновить"
 					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Padding="5 5 5 5" Classes=" MainButton"/>
+		
 		</StackPanel>
 
 	</Grid>
