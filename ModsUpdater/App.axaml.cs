@@ -30,7 +30,7 @@ namespace ModsUpdater
                 (new ServiceCollection()
                 .AddTransient<IUpdatesInfoRepository, UpdatesInfoRepository>()
                 .AddSingleton<ILiteDatabaseAsync, LiteDatabaseAsync>(provider =>
-                    new LiteDatabaseAsync($"Filename={Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), "updates.db")}")
+                    new LiteDatabaseAsync($"Filename={Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.ApplicationData), "updates.db")}")
                 )
                 .AddTransient<IUpdatesClient, UpdatesClient>()
                 .AddTransient<IUpdaterService, UpdaterService>()
