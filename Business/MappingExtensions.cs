@@ -5,7 +5,7 @@ using UpdatesServiceHttpClient;
 
 namespace Business
 {
-    public static class MappingExtensions
+    public static class MappingExtensions 
     {
         public static UpdateItemDto ToDto(this UpdatesResponse source)
         {

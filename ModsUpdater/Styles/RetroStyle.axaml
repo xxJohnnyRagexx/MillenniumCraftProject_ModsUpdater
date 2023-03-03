@@ -71,6 +71,7 @@
 	<Setter Property="TextBlock.FontFamily" Value="avares://ModsUpdater/Assets/Fifaks10Dev1.ttf#Fifaks"/>
 	<Setter Property="TextBlock.FontSize" Value="18"/>
     </Style>
+	
 
 	<!-- Add Styles Here -->
 </Styles>
