@@ -15,6 +15,8 @@ namespace ModsUpdater.ViewModels
     public class MainWindowViewModel: ViewModelBase
     {
         private ViewModelBase _content;
+        private readonly ViewModelBase _versionsListViewModel;
+        private readonly ViewModelBase _settingsViewModel;
         public RelayCommand GoToSettingsCommand { get; set; }
         public RelayCommand GoToHomeCommand { get; set; }
 
@@ -22,12 +24,19 @@ namespace ModsUpdater.ViewModels
         {
             get => _content;
             private set => this.SetProperty(ref _content, value);
-
         }
 
-        public MainWindowViewModel()
+        public ViewModelBase Settings
         {
-            List = new VersionsListViewModel();
+            get => _content;
+            private set => this.SetProperty(ref _content, value);
+        }
+
+        public MainWindowViewModel(SettingsViewModel settingsViewModel, VersionsListViewModel versionsListViewModel1)
+        {
+            _settingsViewModel = settingsViewModel;
+            _versionsListViewModel = versionsListViewModel1;
+            List = _versionsListViewModel;
 
             GoToSettingsCommand = new RelayCommand(goToSettingsExecute, goToSettingsCanExecute);
             GoToHomeCommand = new RelayCommand(goToHomeExecute, goToHomeCanExecute);
@@ -35,7 +44,7 @@ namespace ModsUpdater.ViewModels
 
         private void goToSettingsExecute()
         {
-            _content = List = new SettingsViewModel();
+            _content = Settings = _settingsViewModel;
         }
         private bool goToSettingsCanExecute()
         {
@@ -44,7 +53,7 @@ namespace ModsUpdater.ViewModels
 
         private void goToHomeExecute()
         {
-            _content = List = new VersionsListViewModel();
+            _content = List = _versionsListViewModel;
         }
 
         private bool goToHomeCanExecute() 

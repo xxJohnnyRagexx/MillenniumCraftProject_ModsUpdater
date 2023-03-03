@@ -34,9 +34,10 @@ namespace ModsUpdater.ViewModels
             get => selectedItem;
             set => this.SetProperty(ref selectedItem, value);
         }
-        private readonly UpdaterService _updaterService = new UpdaterService();
-        public VersionsListViewModel()
+        private readonly IUpdaterService _updaterService;
+        public VersionsListViewModel(IUpdaterService updaterService)
         {
+            _updaterService = updaterService;
             DownloadFileCommand = new AsyncRelayCommand(downloadUpdates);
         }
         private async Task<ObservableCollection<VersionsViewModel>> getVersionsListAsync()

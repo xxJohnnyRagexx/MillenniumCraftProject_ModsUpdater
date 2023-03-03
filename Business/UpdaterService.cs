@@ -18,17 +18,6 @@ namespace Business
             _repository = updatesInfoRepository;  
         }
 
-        public UpdaterService()
-        {
-            var downloadOptions = new DownloadConfiguration
-            {
-                MaximumBytesPerSecond = 1024 * 1024 * 1,
-                ReserveStorageSpaceBeforeStartingDownload = true,
-            };
-            _updatesClient = new UpdatesClient();
-            _downloadService = new DownloadService(downloadOptions);
-        }
-
         public async Task<List<UpdateItemDto>> GetUpdates()
         {
             var q = await _updatesClient.FetchUpdates();

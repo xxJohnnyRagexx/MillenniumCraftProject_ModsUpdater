@@ -4,11 +4,11 @@ namespace DAL
 {
     public class UpdatesInfoRepository : IUpdatesInfoRepository
     {
-        private ILiteDatabaseAsync _database { get; set; }
+        private readonly ILiteDatabaseAsync _database;
         private string filepath = Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), "updates.db").ToString();
-        public UpdatesInfoRepository()
+        public UpdatesInfoRepository(ILiteDatabaseAsync database)
         {
-            _database = new LiteDatabaseAsync($"Filename={filepath};");
+            _database = database; //new LiteDatabaseAsync($"Filename={filepath};");
         }
 
         public async Task<UpdateInfoEntity> GetUpdateInfoAsync(string gameVersion)

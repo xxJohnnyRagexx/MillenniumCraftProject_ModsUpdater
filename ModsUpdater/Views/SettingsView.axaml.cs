@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using ModsUpdater.ViewModels;
 
 namespace ModsUpdater.Views
@@ -8,7 +9,7 @@ namespace ModsUpdater.Views
         public SettingsView()
         {
             InitializeComponent();
-            DataContext = new SettingsViewModel();
+            DataContext = Ioc.Default.GetService<SettingsViewModel>();
         }
     }
 }
