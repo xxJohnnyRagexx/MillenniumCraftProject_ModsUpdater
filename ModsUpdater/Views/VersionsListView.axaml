@@ -15,12 +15,10 @@
 			<RowDefinition/>
 		</Grid.RowDefinitions>
 		<Border Classes="ContentBorder">
-			<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}"/>
-		</Border >
-		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding VersionsList}"
-				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}"
-				 Classes="ListBox">
-				
+			<TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.Description}" Classes="TextContent"/>
+		</Border>
+		<ListBox x:Name="VersionsList" Grid.Column="1" Items="{Binding Versions^}" Classes="ListBox"
+				 SelectionMode="Single" Selection="{Binding SelectedItem}" SelectedItem="{Binding SelectedItem}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 				
@@ -42,11 +40,20 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 
+		<StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+		</StackPanel>
+
 		<StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom">
 
 			<Button HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="40" Content="Обновить"
-					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Padding="5 5 5 5" Classes=" MainButton"/>
+					VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Padding="5 5 5 5" Classes="MainButton"
+			 Command="{Binding DownloadFileCommand}"/>
 		</StackPanel>
+		<StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBlock Text="{Binding State}"></TextBlock>
+            <ProgressBar ShowProgressText="True" Height="30" Value="{Binding Progress}"></ProgressBar>
+        </StackPanel>
 
+	
 	</Grid>
 </UserControl>

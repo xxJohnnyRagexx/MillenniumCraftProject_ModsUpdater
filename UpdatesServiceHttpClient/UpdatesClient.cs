@@ -10,20 +10,21 @@ namespace UpdatesServiceHttpClient
     public class UpdatesClient : IUpdatesClient
     {
         private readonly string _url;
+
         private readonly HttpClient httpClient = new HttpClient()
         {
-            BaseAddress = new Uri("https://localhost:7220/api/updates-service/"),
+            BaseAddress = new Uri("http://localhost:5000/api/updates-service/"),
         };
-        public UpdatesClient(string url = "http://localhost:7220/api/updates-service/")
+
+        public UpdatesClient(string url = "http://localhost:5000/api/updates-service/")
         {
             _url = url;
         }
 
-        public List<UpdatesResponse> FetchUpdates()
+        public async Task<List<UpdatesResponse>> FetchUpdates()
         {
-            var response = httpClient.GetStringAsync("fetch-updates").Result;
-            var q = JsonSerializer.Deserialize<List<UpdatesResponse>>(response);
-            return q;
+            var response = await httpClient.GetStringAsync("fetch-updates");
+            return JsonSerializer.Deserialize<List<UpdatesResponse>>(response);
         }
     }
 }

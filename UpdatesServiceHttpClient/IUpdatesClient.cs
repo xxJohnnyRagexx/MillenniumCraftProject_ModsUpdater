@@ -2,6 +2,6 @@
 {
     public interface IUpdatesClient
     {
-        List<UpdatesResponse> FetchUpdates();
+        Task<List<UpdatesResponse>> FetchUpdates();
     }
 }

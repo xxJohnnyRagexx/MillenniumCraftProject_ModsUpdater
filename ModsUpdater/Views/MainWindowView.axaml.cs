@@ -8,7 +8,6 @@ namespace ModsUpdater.Views
         public MainWindowView()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
         }
     }
 }
