@@ -1,33 +1,34 @@
-﻿using LiteDB.Async;
+﻿using LiteDB;
+using LiteDB.Async;
 
 namespace DAL
 {
     public class UpdatesInfoRepository : IUpdatesInfoRepository
     {
-        private readonly ILiteDatabaseAsync _database;
+        private readonly ILiteDatabase _database;
         private string filepath = Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), "updates.db").ToString();
-        public UpdatesInfoRepository(ILiteDatabaseAsync database)
+        public UpdatesInfoRepository(ILiteDatabase database)
         {
             _database = database; //new LiteDatabaseAsync($"Filename={filepath};");
         }
 
-        public async Task<UpdateInfoEntity> GetUpdateInfoAsync(string gameVersion)
+        public UpdateInfoEntity GetUpdateInfoAsync(string gameVersion)
         {
             var collection = _database.GetCollection<UpdateInfoEntity>();
-            return await collection.Query().Where(x => x.GameVersion == gameVersion).FirstOrDefaultAsync();
+            return collection.Query().Where(x => x.GameVersion == gameVersion).FirstOrDefault();
         }
 
-        public async Task<List<UpdateInfoEntity>> GetUpdatesInfoAsync()
+        public List<UpdateInfoEntity> GetUpdatesInfoAsync()
         {
-            return await _database.GetCollection<UpdateInfoEntity>()
+            return _database.GetCollection<UpdateInfoEntity>()
                 .Query()
-                .ToListAsync();
+                .ToList();
         }
 
-        public async Task WriteUpdateInfoAsync(UpdateInfoEntity entity)
+        public void WriteUpdateInfoAsync(UpdateInfoEntity entity)
         {
             var collection = _database.GetCollection<UpdateInfoEntity>();
-            await collection.InsertAsync(entity);
+            collection.Insert(entity);
         }
     }
 }

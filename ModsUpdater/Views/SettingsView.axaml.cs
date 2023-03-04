@@ -9,7 +9,8 @@ namespace ModsUpdater.Views
         public SettingsView()
         {
             InitializeComponent();
-            DataContext = Ioc.Default.GetService<SettingsViewModel>();
+            DataContext = Ioc.Default.GetRequiredService<SettingsViewModel>();
         }
+        public SettingsViewModel ViewModel => (SettingsViewModel)DataContext;
     }
 }

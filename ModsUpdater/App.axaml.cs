@@ -9,7 +9,7 @@ using Business;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using DAL;
 using Downloader;
-using LiteDB.Async;
+using LiteDB;
 using Microsoft.Extensions.DependencyInjection;
 using ModsUpdater.ViewModels;
 using ModsUpdater.Views;
@@ -29,12 +29,13 @@ namespace ModsUpdater
            Ioc.Default.ConfigureServices
                 (new ServiceCollection()
                 .AddTransient<IUpdatesInfoRepository, UpdatesInfoRepository>()
-                .AddSingleton<ILiteDatabaseAsync, LiteDatabaseAsync>(provider =>
-                    new LiteDatabaseAsync($"Filename={Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.ApplicationData), "updates.db")}")
+                .AddSingleton<ILiteDatabase, LiteDatabase>(provider =>
+                    new LiteDatabase($"Filename={Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.ApplicationData), "updates.db")}")
                 )
                 .AddTransient<IUpdatesClient, UpdatesClient>()
                 .AddTransient<IUpdaterService, UpdaterService>()
-                .AddTransient<IDownloadService, DownloadService>(provider => new DownloadService( new DownloadConfiguration
+                .AddTransient<IDownloadService, DownloadService>(provider => new DownloadService(
+                    new DownloadConfiguration
                 {
                     MaximumBytesPerSecond = 1024 * 1024 * 1,
                     ReserveStorageSpaceBeforeStartingDownload = true,

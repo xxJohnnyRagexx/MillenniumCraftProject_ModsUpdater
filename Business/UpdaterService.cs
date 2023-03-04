@@ -11,7 +11,9 @@ namespace Business
         private readonly IUpdatesClient _updatesClient;
         private readonly IDownloadService _downloadService;
         private readonly IUpdatesInfoRepository _repository;
-        public UpdaterService(IUpdatesClient updatesClient, IDownloadService downloadService, IUpdatesInfoRepository updatesInfoRepository)
+        public UpdaterService(IUpdatesClient updatesClient,
+            IDownloadService downloadService,
+            IUpdatesInfoRepository updatesInfoRepository)
         {
             _updatesClient = updatesClient;
             _downloadService = downloadService; 
