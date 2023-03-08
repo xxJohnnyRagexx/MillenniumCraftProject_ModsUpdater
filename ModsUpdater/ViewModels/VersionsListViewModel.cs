@@ -43,14 +43,23 @@ namespace ModsUpdater.ViewModels
         private async Task<ObservableCollection<VersionsViewModel>> getVersionsListAsync()
         {
             State = "Получение списка обновлений";
-            var data = await _updaterService.GetUpdates();
-            State = "Готово";
-            return new ObservableCollection<VersionsViewModel>(
-                data.Select(
-                    x => new VersionsViewModel(
-                        x.ToModel()
-                    ))
-            );
+            try
+            {
+                var data = await _updaterService.GetUpdates();
+                State = "Готово";
+                return new ObservableCollection<VersionsViewModel>(
+                    data.Select(
+                        x => new VersionsViewModel(
+                            x.ToModel()
+                        ))
+                );
+            }
+            catch (Exception e)
+            {
+                State = $"Не удалось получить обновления {e.Message}";
+                return new ObservableCollection<VersionsViewModel>();
+            }
+            
         }
         private async Task downloadUpdates()
         {

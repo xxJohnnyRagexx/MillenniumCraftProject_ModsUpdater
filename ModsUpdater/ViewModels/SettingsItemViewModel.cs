@@ -38,14 +38,13 @@ namespace ModsUpdater.ViewModels
                 _model = new SettingsModel
                 {
                     GamePath = Environment.ExpandEnvironmentVariables(AppSettings.Default.GamePathWin),
-                    ServerUrl = "localhost:5000",
                 };
             else if (OperatingSystem.IsLinux()) 
                 _model = new SettingsModel
                 {
                     GamePath = Environment.ExpandEnvironmentVariables(AppSettings.Default.GamePathLinux),
-                    ServerUrl = "localhost:5000",
-                };    
+                };
+            _model.ServerUrl = Environment.ExpandEnvironmentVariables(AppSettings.Default.ServerUrl);
         }
     }
 }
