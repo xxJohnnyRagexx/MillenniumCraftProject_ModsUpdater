@@ -59,7 +59,6 @@ namespace ModsUpdater.ViewModels
                 State = $"Не удалось получить обновления {e.Message}";
                 return new ObservableCollection<VersionsViewModel>();
             }
-            
         }
         private async Task downloadUpdates()
         {

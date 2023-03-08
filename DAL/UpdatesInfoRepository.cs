@@ -9,7 +9,7 @@ namespace DAL
         private string filepath = Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), "updates.db").ToString();
         public UpdatesInfoRepository(ILiteDatabase database)
         {
-            _database = database; //new LiteDatabaseAsync($"Filename={filepath};");
+            _database = database;
         }
 
         public UpdateInfoEntity GetUpdateInfoAsync(string gameVersion)
