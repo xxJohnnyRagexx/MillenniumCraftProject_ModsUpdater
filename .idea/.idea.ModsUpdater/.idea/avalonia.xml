@@ -3,7 +3,9 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="ModsUpdater/App.axaml" value="ModsUpdater/ModsUpdater.csproj" />
         <entry key="ModsUpdater/Views/MainWindowView.axaml" value="ModsUpdater/ModsUpdater.csproj" />
+        <entry key="ModsUpdater/Views/SettingsView.axaml" value="ModsUpdater/ModsUpdater.csproj" />
         <entry key="ModsUpdater/Views/VersionsListView.axaml" value="ModsUpdater/ModsUpdater.csproj" />
       </map>
     </option>

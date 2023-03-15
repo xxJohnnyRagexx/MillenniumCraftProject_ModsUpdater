@@ -1,5 +1,7 @@
 using System;
+using System.Configuration;
 using System.IO;
+using System.Net.Http;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
@@ -10,24 +12,35 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using DAL;
 using Downloader;
 using LiteDB;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ModsUpdater.ViewModels;
 using ModsUpdater.Views;
 using UpdatesServiceHttpClient;
+using Microsoft.Extensions.Http;
+using ModsUpdater.Infrastructure;
 
 namespace ModsUpdater
 {
     public partial class App : Application
     {
+        public IServiceProvider ServiceProvider { get; private set; }
+        public IConfiguration Configuration { get; private set; }
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);
         }
-
         public override void OnFrameworkInitializationCompleted()
         {
-           Ioc.Default.ConfigureServices
-                (new ServiceCollection()
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", false, true);
+            Configuration = builder.Build();
+            
+            Ioc.Default.ConfigureServices
+                (ServiceProvider = new ServiceCollection()
+                    .Configure<AppSettings>(
+                        Configuration.GetSection()
+                            .AddHttpClient()
                 .AddTransient<IUpdatesInfoRepository, UpdatesInfoRepository>()
                 .AddSingleton<ILiteDatabase, LiteDatabase>(provider =>
                     new LiteDatabase($"Filename={Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.ApplicationData), "updates.db")}")
@@ -46,8 +59,8 @@ namespace ModsUpdater
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<VersionsViewModel>()
                 .BuildServiceProvider()
-                ); 
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+                );
+           if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 // Line below is needed to remove Avalonia data validation.
                 // Without this line you will get duplicate validations from both Avalonia and CT

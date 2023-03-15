@@ -14,33 +14,33 @@ namespace ModsUpdater.ViewModels
 {
     public class VersionsListViewModel : ViewModelBase
     {
-        private string state;
-        private int progress;
-        private VersionsViewModel selectedItem;
-        public Task<ObservableCollection<VersionsViewModel>> Versions => getVersionsListAsync();
+        private string _state;
+        private int _progress;
+        private VersionsViewModel _selectedItem;
+        public Task<ObservableCollection<VersionsViewModel>> Versions => GetVersionsListAsync();
         public string State 
         {   
-            get => state;
-            set => SetProperty(ref state, value);
+            get => _state;
+            set => SetProperty(ref _state, value);
         }
         public ICommand DownloadFileCommand { get; }
         public int Progress
         {
-            get => progress;
-            set => this.SetProperty(ref progress, value);
+            get => _progress;
+            set => this.SetProperty(ref _progress, value);
         }
         public VersionsViewModel SelectedItem
         {
-            get => selectedItem;
-            set => this.SetProperty(ref selectedItem, value);
+            get => _selectedItem;
+            set => this.SetProperty(ref _selectedItem, value);
         }
         private readonly IUpdaterService _updaterService;
         public VersionsListViewModel(IUpdaterService updaterService)
         {
             _updaterService = updaterService;
-            DownloadFileCommand = new AsyncRelayCommand(downloadUpdates);
+            DownloadFileCommand = new AsyncRelayCommand(DownloadUpdates);
         }
-        private async Task<ObservableCollection<VersionsViewModel>> getVersionsListAsync()
+        private async Task<ObservableCollection<VersionsViewModel>> GetVersionsListAsync()
         {
             State = "Получение списка обновлений";
             try
@@ -56,17 +56,17 @@ namespace ModsUpdater.ViewModels
             }
             catch (Exception e)
             {
-                State = $"Не удалось получить обновления {e.Message}";
+                State = $"{e.Message}";
                 return new ObservableCollection<VersionsViewModel>();
             }
         }
-        private async Task downloadUpdates()
+        private async Task DownloadUpdates()
         {
             Progress = 0;
-            if (selectedItem != null)
+            if (_selectedItem != null)
             {
                 await _updaterService.GetUpdateAsync
-                (selectedItem.GameVersion, (sender, e) => 
+                (_selectedItem.GameVersion, (sender, e) => 
                     { Progress = Convert.ToInt32(e.ProgressPercentage * 100); }
                 );
             }

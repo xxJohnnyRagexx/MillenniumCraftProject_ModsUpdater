@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace ModsUpdater.ViewModels
 {
@@ -10,12 +11,9 @@ namespace ModsUpdater.ViewModels
     {
         public SettingsItemViewModel Item { get; set; }
 
-        public SettingsViewModel() 
+        public SettingsViewModel(IConfiguration configuration) 
         {
-            Item = new SettingsItemViewModel();
-
+            Item = new SettingsItemViewModel(configuration);
         }
-
-
     }
 }

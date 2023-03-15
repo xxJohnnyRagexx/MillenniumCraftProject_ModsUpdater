@@ -1,19 +1,15 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using ModsUpdater.Models;
+﻿using ModsUpdater.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.Runtime.InteropServices;
-using System.Runtime.Versioning;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace ModsUpdater.ViewModels
 {
     public class SettingsItemViewModel : ViewModelBase
     {
         private SettingsModel _model;
-
+        private readonly IConfiguration _configuration;
         public string ServerUrl
         {
             get => _model.ServerUrl;
@@ -26,25 +22,26 @@ namespace ModsUpdater.ViewModels
             set => _model.GamePath = value;
         }
 
-        public SettingsItemViewModel(SettingsModel settingsModel) 
+        public SettingsItemViewModel(SettingsModel settingsModel, IConfiguration configuration) 
         {
-            GamePath = OSPlatform.Linux.ToString();
             _model = settingsModel;
+            _configuration = configuration;
         }
 
-        public SettingsItemViewModel()
+        public SettingsItemViewModel(IConfiguration configuration)
         {
+            _configuration = configuration;
             if (OperatingSystem.IsWindows())
                 _model = new SettingsModel
                 {
-                    GamePath = Environment.ExpandEnvironmentVariables(AppSettings.Default.GamePathWin),
+                    GamePath = _configuration["GamePathWin"],
                 };
             else if (OperatingSystem.IsLinux()) 
                 _model = new SettingsModel
                 {
-                    GamePath = Environment.ExpandEnvironmentVariables(AppSettings.Default.GamePathLinux),
+                    GamePath = _configuration["GamePathLinux"],
                 };
-            _model.ServerUrl = Environment.ExpandEnvironmentVariables(AppSettings.Default.ServerUrl);
+            _model.ServerUrl = _configuration["ServerUrl"];
         }
     }
 }

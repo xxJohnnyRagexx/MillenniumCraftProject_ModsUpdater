@@ -10,4 +10,13 @@
     <PackageReference Include="System.Text.Json" Version="7.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Http">
+      <HintPath>..\..\..\.nuget\packages\microsoft.extensions.http\7.0.0\lib\net6.0\Microsoft.Extensions.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>..\..\..\.nuget\packages\system.configuration.configurationmanager\7.0.0\lib\net6.0\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
