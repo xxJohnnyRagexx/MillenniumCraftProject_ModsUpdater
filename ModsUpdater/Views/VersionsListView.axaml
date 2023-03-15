@@ -51,7 +51,7 @@
 		</StackPanel>
 		<StackPanel Grid.Column="0" Grid.Row="1">
             <TextBlock Text="{Binding State}"></TextBlock>
-            <ProgressBar ShowProgressText="True" Height="30" Value="{Binding Progress}"></ProgressBar>
+            <ProgressBar ShowProgressText="True" Height="30" Value="70"></ProgressBar>
         </StackPanel>
 
 	

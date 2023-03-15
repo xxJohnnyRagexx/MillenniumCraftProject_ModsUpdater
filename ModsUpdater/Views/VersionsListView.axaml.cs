@@ -10,6 +10,7 @@ namespace ModsUpdater.Views
         {
             InitializeComponent();
             DataContext = Ioc.Default.GetRequiredService<VersionsListViewModel>();
+
         }
     }
 }
